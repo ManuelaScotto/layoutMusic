@@ -1,0 +1,257 @@
+/* settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'sarabun';
+    src: url(../font/THSarabunNew001.ttf);
+}
+
+@font-face {
+    font-family: 'sarabunBold';
+    src: url(../font/THSarabunNew\ Bold001.ttf);
+}
+
+:root {
+    --white: rgb(255, 255, 240);
+    --purple: rgb(61, 48, 61);
+}
+
+body {
+    font-family: 'sarabun';
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* grid */
+.container_grid {
+    display: grid;
+    grid: 1fr 1fr/ 1fr 10fr 1fr;
+    width: 100%;
+    max-height: calc(100vh - 110px);
+}
+
+/* sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    grid-row: 1/3;
+    background-color: rgb(0, 128, 128);
+}
+
+.container_grid i  {
+    font-size: 1.4rem;
+    color: var(--white);
+}
+
+i:hover, button:hover {
+    color: rgb(148, 141, 128);
+}
+
+/* jumbo */
+.jumbo {
+    position: relative;
+    grid-column: 2/5;
+    padding: 3rem 0 3rem 3rem;
+    font-size: 2.1rem;
+    color: var(--white);
+    background-color: var(--purple);
+}
+
+.jumbo > i {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.jumbo img {
+    width: 21%;
+    height: 100%;
+}
+
+.jumbo .text {
+    position: relative;
+    padding-left: 2rem;
+    line-height: 1;
+}
+
+.icons {
+    position: absolute;
+    bottom: 0;
+    left: 2rem;
+    display: flex;
+    font-size: 1.2rem ;
+}
+
+.icons i {
+    font-size: 1.2rem;
+}
+
+.icons p {
+    margin-right: 1.2rem;
+}
+
+/* main (TABLE)*/
+.main {
+    display: grid;
+    grid-column: 2/5;
+    grid-template-rows: 1fr 5fr;
+    grid-template-columns: 3rem repeat(4, 1fr) ;
+    max-height: 300px;
+    padding: .25rem 0 1.5rem 3rem;
+    font-size: 1.5rem;
+    overflow-y: hidden;
+}
+
+.heading {
+    grid-column: 1/7;
+    color: var(--purple);
+    font-family: 'sarabunBold';
+    text-transform: uppercase;
+    border-bottom: 1px solid black;
+}
+
+.heading ul, .list ul {
+    display: grid;
+    grid-template-columns: 1fr repeat(4, 4fr);
+    list-style: none;
+}
+
+.list{
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-column: 1/7;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.list ul:nth-child(odd) {
+    font-family: 'sarabunBold';
+    background-color: rgba(53, 63, 32, 0.3);
+}
+
+.list ul li, .heading ul li {
+    margin-top: 0.25rem;
+    margin-left: 1rem;
+}
+
+.list button {
+    padding: .4rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--purple);
+}
+
+/* footer */
+.footer {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    color:var(--purple);
+    border-top: 1px solid rgba(51, 53, 46, 0.8);
+    background-color: var(--white);
+}
+
+.footer img {
+    width: 80px;
+}
+
+.footer_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 2rem;
+    font-size: 1.3rem;
+}
+
+.footer_icons {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 3rem;
+    font-size: 1.9rem;
+}
+
+.footer_icons i {
+    margin: 0 2rem;
+}
+
+
+/* MEDIA QUERY */
+@media screen and (max-width: 1023px) {
+    .icons {
+        bottom: -2.5rem;
+    }
+}
+
+@media screen and (max-width: 834px) {
+    .container_grid {
+        grid-template-rows: 1fr 5fr 5fr;
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        flex-direction: row;
+        grid-column: 1/5;
+        grid-row: 1;
+    }
+    .jumbo {
+        font-size: 1.5rem;
+    }
+    .jumbo, .main {
+        grid-column: 1/5;
+    }
+    .jumbo .text {
+        position: static;
+    }
+    .icons {
+        bottom:1rem;
+        left:25%;
+    }
+    .main {
+        font-size: 1.5rem;
+        padding: .25rem 1rem 1rem 1rem;
+    }
+    .main button {
+        display: none;
+    }
+    .heading ul, .list ul {
+        grid-template-columns: 1fr repeat(3, 4fr);
+    }
+    .right {
+        margin-right: 1rem;
+        text-align: right;
+    }
+    .footer_icons {
+        font-size: 1.3rem;
+    }
+    .footer_icons i {
+        margin: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 567px) {
+    .jumbo {
+        padding: 1.5rem;
+    }
+    .jumbo img {
+        display: none;
+    }
+    .icons {
+        left:3rem;
+    }
+    .footer_text {
+        display: none;
+    }
+}
